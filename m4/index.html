@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<title></title>
+	<script type="text/javascript" src="../js/lib/angular/angular.min.js" ></script>
+</head>
+<body>
+
+<section>
+	<h2>ngif</h2>
+	<button ng-click="on = true">on=true</button>
+	<button ng-click="on = false">on=false</button>
+	<div ng-if="on">
+	<!-- <div ng-if="!on"> -->
+		Im visible when ng-if is true.
+	</div>
+</section>
+
+<section ng-init="show = true; hide = false">
+	<h2>show/hide</h2>
+
+	<nav>
+		<button ng-click="show = true">show=true</button>
+		<button ng-click="show = false">show=false</button>
+		<button ng-click="show = !show">[toggle]</button>
+	</nav>
+	<div ng-show="show">
+		I am visible when show is true.
+	</div>
+
+	<nav>
+		<button ng-click="hide = true">show=true</button>
+		<button ng-click="hide = false">show=false</button>
+	</nav>
+	<div ng-hide="hide">
+		I am visible when hide is true.
+	</div>
+</section>
+
+<section ng-controller="RepeatController">
+	<h2>ngrepeate</h2>
+	<nav>
+		<button ng-click="setColor()">colors</button>
+		<button ng-click="setState()">State</button>
+		<button ng-click="values = null">No things</button>
+	</nav>
+
+	<div ng-hide="getValues()">
+		There are no values.
+	</div>
+	<div ng-show="getValues()">
+		<div ng-repeat="value in getValues()">
+			{{ $index + 1 }}. {{ value }}
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>ngswitch</h2>
+	<nav>
+		<button ng-click="slide = 'one'">One</button>
+		<button ng-click="slide = 'two'">Two</button>
+		<button ng-click="slide = 'default'">Default</button>
+	</nav>
+	<div ng-switch="slide">
+		<div ng-switch-when="one">
+			Switched to one.
+		</div>
+		<div ng-switch-when="two">
+			Switched to Two.
+		</div>
+		<div ng-switch-default>
+			Switched to default.
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>nginclude</h2>
+	<nav>
+		<button ng-click= "tpl = 'tpl/home.html'">home.html</button>
+		<button ng-click= "tpl = 'tpl/other.html'">other.html</button>
+	</nav>
+
+	<div ng-include="tpl"></div>
+</section>
+
+<section>
+	<h2>ngfocus, ngblur, ngmodel</h2>
+	<nav>
+		<button ng-click="title = 'Lukas'">Set title to Lukas</button>
+		<button ng-click="title = null">[Set title to null]</button>
+	</nav>
+	<p>
+		<span ng-class="{'label-success': focus}" >Focus!</span>
+		<span ng-class="{'label-error': !focus}">Blur!</span>
+	</p>
+	<input type="text"
+	ng-model="title"
+	ng-focus="focus = 'true'"
+	ng-blur="focus = 'false'"
+	class="form-control"
+	placeholder="Enter title for book">
+	<div>
+		<p>
+			The title of the book is <strong> {{ title.length ? title : "No title" }} </strong>
+		</p>
+	</div>
+</section>
+
+<section>
+	<h2>ngsubmit</h2>
+
+	<form name="myForm" ng-submit="submit()" ng-controller="FormCtrl" novalidate>
+		<div class="form-group">
+			<label for="name">First Name: </label>
+			<input type="text" ng-model="firstName" required >
+		</div>
+
+		<div class="form-group">
+			<label for="age">Age</label>
+			<select ng-model="age" ng-options="age for age in generateAges()">
+				
+			</select>
+		</div>
+
+		<input type="submit">
+		
+	</form>
+</section>
+
+
+</body>
+<script type="text/javascript" src="app.js"></script>
+</html>
