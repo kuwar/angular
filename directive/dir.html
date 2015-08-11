@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html data-ng-app="directivesModule">
+<head>
+
+	<title>Custom Directives</title>
+
+	<script type="text/javascript" src="../js/lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="../js/lib/angular/angular-route.min.js"></script>
+
+</head>
+
+<body data-ng-controller="CustomersController">
+
+	<div ng-include="'myChildView.html'"></div>
+
+	<hr>
+	<div my-shared-scope></div>
+
+	<hr>
+	<div my-dom-directive>Click Me!</div>
+
+</body>
+
+<script type="text/javascript" src="apps.js"></script>
+
+</html>
