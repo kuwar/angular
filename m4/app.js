@@ -24,6 +24,14 @@ myApp.controller( "FormCtrl", ['$scope', function($scope){
 		return ages;
 	};
 
+	$scope.generateMonth = function(){
+		var month = [];
+		for ( var i = 1; i < 13; i++ ){
+			month.push(i);
+		}
+		return month;
+	};
+
 	$scope.submit = function(){
 
 		if ( $scope.myForm.$valid ) {

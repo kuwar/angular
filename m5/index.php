@@ -7,7 +7,7 @@
 <body>
 
 <div ng-controller="ListCtrl">
-	<a href="#" ng-repeat="user in users track by user.id" ng-click="selectUser(user)">{{ user.first_name }}</a>
+	<a href="#" ng-repeat="user in users track by user.id" ng-click="selectUser(user)">{{ user.first_name }}  </a>
 </div>
 
 <div ng-controller="DetailCtrl">

@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../js/lib/angular/angular.min.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.directive('custom', function(){
+			return {
+				compile: function(){
+
+					return {
+						pre: function(){
+
+						},
+						post: function(){
+
+						}
+					}
+
+				},
+				controller: function(){
+
+				}
+
+			};
+		});
+		app.directive('myDirective', function(){
+			return {
+				controller: function(){
+
+				},
+				link: function(){
+					
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

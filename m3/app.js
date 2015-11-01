@@ -10,6 +10,14 @@ myApp.config( ['$routeProvider', function($routeProvider){
 	$routeProvider.when('/info', {
 		controller : "InfoController",
 		templateUrl : "partials/info.html"
+	});
+	$routeProvider.when('/about', {
+		controller : 'AboutCtrl',
+		templateUrl : 'partials/about.html'
+	});
+	$routeProvider.when('/service', {
+		controller : 'ServiceCtrl',
+		templateUrl : 'partials/service.html'
 	})
 }] );
 
@@ -28,3 +36,23 @@ myApp.controller( "InfoController", ['$scope', function($scope){
 	};
 }
 ] );
+
+myApp.controller('AboutCtrl', ['$scope', function($scope){
+	$scope.title = "About Page";
+	$scope.description = function(){
+		return "This is About description";
+	};
+}]);
+
+myApp.controller('ServiceCtrl', ['$scope', function($scope){
+	$scope.title = "Service Page";
+	$scope.description = function(){
+		return "This is service description";
+	};
+}]);
+
+myApp.filter('greet', function(){
+	return function(name){
+		return "Hello" + name + "!";
+	};
+})

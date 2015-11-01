@@ -9,7 +9,7 @@
 <body>
 
 <input type="text" ng-model="q" />
-<div class="content" ng-init="title='Hello Angular'; items=[1,2,3,4,5]">
+<div class="content" ng-init="title='Hello Angular'; items=[0,1,2,3,4,5]">
 	Title : {{ title }}
 	<ul ng-hide="hide">
 		<li ng-repeat="item in items | filter:q ">{{ item }}</li>

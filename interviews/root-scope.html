@@ -1,0 +1,45 @@
+<html ng-app="myApp">
+<head>
+	<title></title>
+
+	<script type="text/javascript" src="../js/lib/angular/angular.min.js"></script>
+	<script language="javascript">
+		function Function1($scope, $rootScope) {
+		        $rootScope.Counter = (($rootScope.Counter || 0) + 1);
+		        $scope.Counter = $rootScope.Counter;
+		        $scope.ControllerName = "Function1";
+		}
+		function Function2($scope, $rootScope) {
+		        $rootScope.Counter = (($rootScope.Counter || 0) + 1);
+		        $scope.ControllerName = "Function2";
+		}
+	    var app = angular.module("myApp", []); // creating a APP
+	    app.controller("Function1", Function1); // Registering the VM
+	    app.controller("Function2", Function2);
+
+	</script>
+
+</head>
+<body>
+	<div>
+		{{1+1}}<br>
+	</div>
+
+	   	Global value is {{Counter}}<br />
+		<div ng-controller="Function1">
+		       Child Instance of {{ControllerName}} created :- {{Counter}}
+		</div><br />
+		<div ng-controller="Function2">
+		       Child Instance of {{ControllerName}} created :- {{Counter}}
+		</div><br />
+		<div ng-controller="Function1">
+		        Child Instance of {{ControllerName}} created :- {{Counter}}
+		</div><br />
+		<div ng-controller="Function2">
+		        Child Instance of {{ControllerName}} created :- {{Counter}}
+		</div><br />
+
+		<!-- Above is the output of the code you can see the global variable of root scope has be incremented four times because four instances of $scope have been created inside “$rootScope” object. -->
+
+</body>
+</html>
